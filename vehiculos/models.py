@@ -3,19 +3,19 @@ from django.db import models
 class Tipo(models.Model):
     tipo = models.CharField(max_length= 255, unique=True)
 
-    def _str_(self) -> str:
+    def __str__(self) -> str:
         return self.tipo
     
 class Marcas(models.Model):
     marca = models.CharField(max_length= 255)
 
-    def _str_(self) -> str:
+    def __str__(self) -> str:
         return self.marca
 
 class Modelos(models.Model):
     modelo = models.CharField(max_length= 255, unique=True)
 
-    def _str_(self) -> str:
+    def __str__(self) -> str:
         return self.modelo
      
 class Ver_vehiculos(models.Model):
