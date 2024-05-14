@@ -2,19 +2,18 @@
 
 {% block titulo %}
 
-    <h1> Busqueda de vehiculos </h1>
+    <h1> Buscador </h1>
 
 {% endblock titulo %}
 
 {% block contenido %}
 
-    <form action="/buscar/" method="get">
+    <form action="/buscar/vehiculos" method="get">
 
         <input type="text" name="marca">
         <input type="submit" value="Buscar">
 
 
     </form>
-
 
 {% endblock contenido %} 
