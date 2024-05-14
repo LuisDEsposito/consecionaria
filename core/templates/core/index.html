@@ -8,6 +8,8 @@
 
 {% block contenido %}
     <div> 
-        <a href="{% url 'vehiculos:index' %}">Ir a vehiculos</a>
+        <a href="{% url 'vehiculos:index' %}">Todos los vehiculos</a>
+        |||
+        <a href="{% url 'vehiculos:buscar_vehiculo' %}">Buscar vehiculo especifico</a>
     </div>
 {% endblock contenido %}
