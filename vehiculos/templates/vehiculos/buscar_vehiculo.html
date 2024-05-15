@@ -1,19 +1,16 @@
 {% extends 'core/base.html' %}
 
-{% block titulo %}
+{% block title %}
+    Buscar por marca
+{% endblock title %}
 
-    <h1> Buscador </h1>
+{% block content %}
 
-{% endblock titulo %}
-
-{% block contenido %}
-
+    <h1>Buscador por marca: </h1>
     <form action="/buscar/vehiculos" method="get">
 
-        <input type="text" name="marca">
-        <input type="submit" value="Buscar">
-
+    <input type="text" name="marca">
+    <input type="submit" value="Buscar">
 
     </form>
-
-{% endblock contenido %} 
+{% endblock content %}

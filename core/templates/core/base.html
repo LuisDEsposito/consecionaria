@@ -1,29 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Concesionaria Ventacar</title>  
-  
-  <style>
-    body {
-      font-family: sans-serif;  
-      margin: 0;
-      padding: 20px;
-    }
-    h1, h2, h3 {
-      margin: 1em 0; 
-    }
-  </style>
-</head>
-<body>
-  <header>  <h1>Bienvenido a Ventacar, sus concesionario de confianza.</h1>  </header>
-  <main>  {% block titulo %}
-      {% endblock titulo %}
-
-    {% block contenido %} 
-      {% endblock contenido %}
-  </main>
-
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>
+            {% block title %}
+                Ventacar Proyecto Coderhouse
+            {% endblock title %}
+        </title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'core/assets/favicon.ico'%}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" href="#!">Ventacar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'core:index' %}">INICIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'vehiculos:index' %}">Todos los vehiculos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'vehiculos:buscar_vehiculo' %}">Buscar por marca</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        {% block content %}
+            
+        {% endblock content %}
+        <!-- Bootstrap core JS-->
+            <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container px-4 px-lg-5">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+        </div>
+    </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'core/js/scripts.js' %}"></script>
+    </body>
 </html>
