@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Tipo(models.Model):
     tipo = models.CharField(max_length= 255, unique=True)
 
@@ -29,9 +30,9 @@ class Modelos(models.Model):
         verbose_name_plural = "Modelos"
 
 class Ver_vehiculos(models.Model):
-    tipo = models.ForeignKey(Tipo, on_delete=models.SET_NULL, null=True, blank=True)    
-    modelos = models.ManyToManyField(Modelos)
-    marcas = models.ManyToManyField(Marcas)
+    tipo = models.CharField(max_length=50)  
+    modelos = models.CharField(max_length=50)
+    marcas = models.CharField(max_length=50)
 
     def _str_(self) -> str:
         return f"{self.tipo}"

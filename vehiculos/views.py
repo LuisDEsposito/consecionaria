@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from . import models
-from vehiculos.models import Ver_vehiculos
+from vehiculos.models import Ver_vehiculos, Marcas
 
 def index(request):
     consultar = Ver_vehiculos.objects.all()
@@ -10,16 +10,15 @@ def index(request):
 def buscar_vehiculo(request):
     return render(request, "vehiculos/buscar_vehiculo.html")
 
-# def resultado_busqueda(request):
 
-#     if request.get("marca"):
-#         # mensaje = "Usted a ingresado: %r" %request.GET("marca")
-#         marca_solicitada = request.get("marca")
-#         marcas_disponibles = Marcas.objects.filter(nombre_icontrains=marca_solicitada)
+def resultado_busqueda(request):
+
+    if request.get("marca"):
+        marca_solicitada = request.get("marca")
+        contexto = {'marcas_disponibles' : Marcas.objects.filter(nombre_icontrains=marca_solicitada)}
         
-#         return render(request, "buscar_vehiculo.html", )
+        return render(request, "vehiculos/buscar_vehiculo.html", contexto)
     
-#     else:
-#         mensaje = "Lo siento, no se encontraron resultados para tu busqueda."
+    else:
+        return f"Lo siento, no se encontraron resultados para tu busqueda."
     
-#     return HttpResponse(mensaje)
