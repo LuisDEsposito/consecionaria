@@ -30,9 +30,9 @@ class Modelos(models.Model):
         verbose_name_plural = "Modelos"
 
 class Ver_vehiculos(models.Model):
-    tipo = models.CharField(max_length=50)  
-    modelos = models.CharField(max_length=50)
-    marcas = models.CharField(max_length=50)
+    tipo = models.ManyToManyField(Tipo)
+    modelos = models.ManyToManyField(Modelos)
+    marcas = models.ManyToManyField(Marcas)
 
     class Meta:
         verbose_name = "Ver Vehículo"

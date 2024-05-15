@@ -7,15 +7,15 @@ def index(request):
     contexto = {'vehiculos': consultar}
     return render(request, "vehiculos/lista_vehiculos.html", contexto)
 
+
 def buscar_vehiculo(request):
     return render(request, "vehiculos/buscar_vehiculo.html")
 
 
 def resultado_busqueda(request):
-
     if request.get("marca"):
         marca_solicitada = request.get("marca")
-        contexto = {'marcas_disponibles' : Marcas.objects.filter(nombre_icontrains=marca_solicitada)}
+        contexto = {'coincidencias' : Marcas.objects.filter(nombre_icontrains=marca_solicitada)}
         
         return render(request, "vehiculos/buscar_vehiculo.html", contexto)
     
