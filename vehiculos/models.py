@@ -34,8 +34,6 @@ class Ver_vehiculos(models.Model):
     modelos = models.CharField(max_length=50)
     marcas = models.CharField(max_length=50)
 
-    def _str_(self) -> str:
-        return f"{self.tipo}"
     class Meta:
         verbose_name = "Ver Vehículo"
         verbose_name_plural = "Ver Vehículos"
