@@ -10,7 +10,7 @@ class Tipo(models.Model):
         verbose_name_plural = "Tipos de vehiculo"
     
 class Marcas(models.Model):
-    marca = models.CharField(max_length= 255)
+    marca = models.CharField(max_length= 255, unique=True)
 
     def __str__(self) -> str:
         return self.marca
@@ -30,8 +30,8 @@ class Modelos(models.Model):
 
 class Ver_vehiculos(models.Model):
     tipo = models.ForeignKey(Tipo, on_delete=models.SET_NULL, null=True, blank=True)    
-    modelos = models.ForeignKey(Modelos, on_delete=models.SET_NULL, null=True, blank=True)
-    marcas = models.ForeignKey(Marcas, on_delete=models.SET_NULL, null=True, blank=True)
+    modelos = models.ManyToManyField(Modelos)
+    marcas = models.ManyToManyField(Marcas)
 
     def _str_(self) -> str:
         return f"{self.tipo}"

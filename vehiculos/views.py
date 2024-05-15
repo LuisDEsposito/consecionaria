@@ -5,7 +5,7 @@ from vehiculos.models import Ver_vehiculos
 def index(request):
     consultar = Ver_vehiculos.objects.all()
     contexto = {'vehiculos': consultar}
-    return render(request, "vehiculos/index.html", contexto)
+    return render(request, "vehiculos/lista_vehiculos.html", contexto)
 
 def buscar_vehiculo(request):
     return render(request, "vehiculos/buscar_vehiculo.html")
