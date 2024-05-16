@@ -5,9 +5,16 @@
 {% endblock title %}
 
 {% block content %}
+<form action="{% url 'vehiculos:index' %}" method="get" >
+    <input type="text" name="busqueda" placeholder="Buscar...">
+</form>    
     <h1>Vehiculos disponibles: </h1>
-        {% for vehiculo in vehiculos %}
-            {{vehiculo.tipo}}
-        {% endfor %}
 
+        <ul>
+            {% for vehiculo in vehiculos %}
+            <li><p> {{vehiculo.marcas}} | {{vehiculo.tipo}} | {{vehiculo.modelos}} </p></li>
+            
+            {% endfor %}
+         </ul>
+         
 {% endblock content %}
