@@ -5,19 +5,14 @@ from vehiculos.forms import Ver_vehiculosform
 
 
 def index(request):
-    consultar = Ver_vehiculos.objects.all()
-    contexto = {'vehiculos': consultar}
-    return render(request, "vehiculos/lista_vehiculos.html", contexto)
-
-def buscar_vehiculo(request):
-    busqueda = request.GET.get("busqueda", None)
+    busqueda = request.GET.get("busqueda")
     if busqueda:
         print(busqueda)
-        consulta = Ver_vehiculos.objects.filter(marcas_incontains=busqueda)
-    else:   
-        consulta = Ver_vehiculos.objects.all()  
-    contexto = {"buscar_vehiculo":consulta}
-    return render(request,"vehiculos/lista_vehiculos.html", contexto)
+        consulta = Ver_vehiculos.objects.filter(marcas__icontains=busqueda)
+    else:
+        consulta = Ver_vehiculos.objects.all()
+    contexto = {'vehiculos': consulta}
+    return render(request, "vehiculos/lista_vehiculos.html", contexto)
 
 def publicar_vehiculo(request):
     if request.method == "POST":
@@ -27,7 +22,7 @@ def publicar_vehiculo(request):
             return redirect ("vehiculos:index")
     else:
         form = Ver_vehiculosform()
-        return render (request, "vehiculos/lista_vehiculos_agregar.html", {"form": form} )
+    return render (request, "vehiculos/lista_vehiculos_agregar.html", {"form": form})
 
 
 #     return render(request, "vehiculos/buscar_vehiculo.html")
