@@ -1,14 +1,16 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-    Agregar vehiculo para publicar
+   Vehiculos - Publicar mi vehiculo
 {% endblock title %}
 
 {% block content %}
 
-    <form action="" method="post">
+    <form method="post">
         {% csrf_token %}
-        {{ form }}
+        <table>
+            {{ form.as_table }}
+        </table>
         <button type="submit">Guardar</button>
     </form>
  
