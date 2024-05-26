@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
-from . import models
 from vehiculos.models import Ver_vehiculos, Marcas
 from vehiculos.forms import Ver_vehiculosform
 
 
 def index(request):
+    return render(request, "vehiculos/index.html")
+
+
+def lista_vehiculos(request):
     busqueda = request.GET.get("busqueda")
     if busqueda:
         print(busqueda)
@@ -13,6 +16,7 @@ def index(request):
         consulta = Ver_vehiculos.objects.all()
     contexto = {'vehiculos': consulta}
     return render(request, "vehiculos/lista_vehiculos.html", contexto)
+
 
 def publicar_vehiculo(request):
     if request.method == "POST":
@@ -25,13 +29,7 @@ def publicar_vehiculo(request):
     return render (request, "vehiculos/lista_vehiculos_agregar.html", {"form": form})
 
 
-#     return render(request, "vehiculos/buscar_vehiculo.html")
-# def resultado_busqueda(request):
-#     if request.get("marca"):
-#         marca_solicitada = request.get("marca")
-#         contexto = {'coincidencias' : Marcas.objects.filter(nombre_icontrains=marca_solicitada)}
-#         return render(request, "vehiculos/buscar_vehiculo.html", contexto)
-    
-#     else:
-#         return f"Lo siento, no se encontraron resultados para tu busqueda."
-    
+def detalle_vehiculo(request, pk: int):
+    consulta = Ver_vehiculos.objects.get(id=pk)
+    contexto = {"vehiculo": consulta}
+    return render(request, "vehiculos/lista_vehiculos_detalle.html", contexto)

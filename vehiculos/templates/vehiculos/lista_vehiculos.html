@@ -1,20 +1,37 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-    Todos los vehiculos
+   Vehiculos - Todos los vehiculos
 {% endblock title %}
 
 {% block content %}
-<form action="{% url 'vehiculos:index' %}" method="get" >
-    <input type="text" name="busqueda" placeholder="Buscar...">
-</form>    
-    <h1>Vehiculos disponibles: </h1>
+<h3>Busqueda por marca</h3>
+<form class="form-inline" action="{% url 'vehiculos:lista_vehiculos' %}" method="get">
+    <div class="form-group">
+        <input type="text" class="form-control" name="busqueda" placeholder="Buscar...">
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
 
-        <ul>
-            {% for vehiculo in vehiculos %}
-            <li><p> {{vehiculo.marcas}} | {{vehiculo.tipo}} | {{vehiculo.modelos}} </p></li>
-            
-            {% endfor %}
-         </ul>
+<h1>Vehículos disponibles:</h1>
+
+<ul class="list-group">
+    {% for vehiculo in vehiculos %}
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-md-4">
+                <p>{{ vehiculo.marcas }}</p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ vehiculo.modelos }}</p>
+            </div>
+            <div class="col-md-4">
+                <p>{{ vehiculo.tipo }}</p>
+            </div>
+        </div>
+        <a href="{% url 'vehiculos:detalle_vehiculo' vehiculo.id %}" class="btn btn-info">Ver detalle</a>
+    </li>
+    {% endfor %}
+</ul>
          
 {% endblock content %}
