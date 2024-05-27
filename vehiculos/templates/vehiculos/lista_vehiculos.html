@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-   Vehiculos - Todos los vehiculos
+   Vehículos - Todos los vehículos
 {% endblock title %}
 
 {% block content %}
@@ -30,6 +30,8 @@
             </div>
         </div>
         <a href="{% url 'vehiculos:detalle_vehiculo' vehiculo.id %}" class="btn btn-info">Ver detalle</a>
+        <a href="{% url 'vehiculos:editar_vehiculo' vehiculo.id %}" class="btn btn-info">Actualizar vehículo</a>
+        <a href="{% url 'vehiculos:eliminar_vehiculo' vehiculo.id %}" class="btn btn-info">Eliminar publicación</a>
     </li>
     {% endfor %}
 </ul>

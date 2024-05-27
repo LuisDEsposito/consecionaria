@@ -1,12 +1,17 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-   Vehiculos - Publicar mi vehiculo
+   Vehiculos - Publicar mi vehículo
 {% endblock title %}
+{% block body_title %}
+    {% if form.instance.pk %}
+        <h1>Vehículos - Editar un vehículo</h1>
+    {% else %}
+        <h1>Vehículos - Publicar un vehículo</h1>
+    {% endif %}
+{% endblock body_title %}
    
-{% block content %}
-    <h1>Publicar un vehiculo:</h1>
-    
+{% block content %}   
 <form method="post" class="mt-4">
     {% csrf_token %}
     <div class="container">
@@ -24,5 +29,4 @@
         </div>
     </div>
 </form>
-
 {% endblock content %}

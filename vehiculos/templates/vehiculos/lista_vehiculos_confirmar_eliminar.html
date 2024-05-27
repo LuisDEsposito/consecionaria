@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+   Vehículos - Publicar mi vehículo
+{% endblock title %}
+{% block body_title %}
+    <h1>Vehículos - Eliminar vehículo</h1>
+{% endblock body_title %}
+   
+{% block content %}   
+    <div class="container">
+        <p class="fs-5 fst-italic">¿Desea ELIMINAR {{ object.nombre }}?</p>
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-danger btn-block">Eliminar</button>
+                </div>
+                <div class="col-md-4">
+                    <a href="{% url 'vehiculos:index' %}" class="btn btn-secondary btn-block">Ir al inicio</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
