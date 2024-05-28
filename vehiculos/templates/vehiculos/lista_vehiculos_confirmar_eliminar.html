@@ -9,7 +9,7 @@
    
 {% block content %}   
     <div class="container">
-        <p class="fs-5 fst-italic">¿Desea ELIMINAR {{ object.nombre }}?</p>
+        <p class="fs-5 fst-italic">¿Desea ELIMINAR la publicación?</p>
         <form method="post" class="mt-4">
             {% csrf_token %}
             <div class="row">
@@ -17,7 +17,7 @@
                     <button type="submit" class="btn btn-danger btn-block">Eliminar</button>
                 </div>
                 <div class="col-md-4">
-                    <a href="{% url 'vehiculos:index' %}" class="btn btn-secondary btn-block">Ir al inicio</a>
+                    <a href="{% url 'vehiculos:lista_vehiculos' %}" class="btn btn-secondary btn-block">Cancelar y volver</a>
                 </div>
             </div>
         </form>
