@@ -8,13 +8,28 @@
 {% endblock body_title %}
 
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-            <input type="hidden" name="next" value="{% url 'core:index' %}">
-        </table>
-            <button type="submit" class="btn btn-primary">Inicias Sesión</button>
-            <a href="{% url 'core:index' %}" class="btn btn-secondary">Cancelar</a>
-    </form>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>Para poder operar en nuestra web, debes iniciar sesión.</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ form.as_p }}
+                            </div>
+                            <input type="hidden" name="next" value="{% url 'core:index' %}">
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                                <a href="{% url 'core:index' %}" class="btn btn-secondary">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
