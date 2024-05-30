@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 class Tipo(models.Model):
     tipo = models.CharField(max_length= 255, unique=True)
@@ -62,6 +62,9 @@ class Ver_vehiculos(models.Model):
     marcas = models.CharField(max_length=30)
     valor_dolares = models.DecimalField(max_digits=10, decimal_places=2, null = True)
     descripcion = models.CharField(max_length=400, null=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True, null=True, editable=False)
+    fecha_actualizacion = models.DateTimeField(auto_now=True, null=True, editable=False)
+    # fecha_actualizacion = models.DateField(null=True, blank=True, editable=False, default=timezone.now)
 
     def __str__(self) -> str:
         return f"{self.marcas}, {self.modelos}"
