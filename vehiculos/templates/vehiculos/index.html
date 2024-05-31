@@ -1,19 +1,19 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-  Opciones disponiles
+  Opciones disponibles
 {% endblock title %}
 
 {% block content %}
 
-<div class="container">
-    <h2 class="mt-4 mb-3">Opciones disponibles</h2>
+<div class="container mt-4">
+    <h2 class="mb-3 text-white">Opciones disponibles</h2>
     <ul class="list-group">
-        <li class="list-group-item">
-            <a href="{% url 'vehiculos:lista_vehiculos' %}" class="text-decoration-none">Todos los vehículos</a>
+        <li class="list-group-item bg-dark">
+            <a href="{% url 'vehiculos:lista_vehiculos' %}" class="text-decoration-none text-white">Todos los vehículos</a>
         </li>
-        <li class="list-group-item">
-            <a href="{% url 'vehiculos:publicar_vehiculo' %}" class="text-decoration-none">Publicar un vehículo</a>
+        <li class="list-group-item bg-dark">
+            <a href="{% url 'vehiculos:publicar_vehiculo' %}" class="text-decoration-none text-white">Publicar un vehículo</a>
         </li>
     </ul>
 </div>

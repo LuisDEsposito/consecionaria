@@ -5,9 +5,9 @@
 {% endblock title %}
 {% block body_title %}
     {% if form.instance.pk %}
-        <h1>Vehículos - Editar un vehículo</h1>
+        <h1 class="text-white">Vehículos - Editar un vehículo</h1>
     {% else %}
-        <h1>Vehículos - Publicar un vehículo</h1>
+        <h1 class="text-white">Vehículos - Publicar un vehículo</h1>
     {% endif %}
 {% endblock body_title %}
    
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-dark">
                         {{ form.as_table }}
                     </table>
                 </div>

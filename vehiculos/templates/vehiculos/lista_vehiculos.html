@@ -1,39 +1,49 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-   Vehículos - Todos los vehículos
+    Vehículos - Todos los vehículos
 {% endblock title %}
 
 {% block content %}
-<h3>Busqueda por marca</h3>
-<form class="form-inline" action="{% url 'vehiculos:lista_vehiculos' %}" method="get">
-    <div class="form-group">
-        <input type="text" class="form-control" name="busqueda" placeholder="Buscar...">
-    </div>
-    <button type="submit" class="btn btn-primary">Buscar</button>
-</form>
-
-<h1>Vehículos disponibles:</h1>
-
-<ul class="list-group">
-    {% for vehiculo in vehiculos %}
-    <li class="list-group-item">
-        <div class="row">
-            <div class="col-md-4">
-                <p>{{ vehiculo.marcas }}</p>
-            </div>
-            <div class="col-md-4">
-                <p>{{ vehiculo.modelos }}</p>
-            </div>
-            <div class="col-md-4">
-                <p>{{ vehiculo.tipo }}</p>
-            </div>
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h3 class="text-center text-light mb-3">Búsqueda por marca</h3>
+            <form class="form-inline d-flex justify-content-center" action="{% url 'vehiculos:lista_vehiculos' %}" method="get">
+                <div class="input-group mb-3 w-50">
+                    <input type="text" class="form-control" name="busqueda" placeholder="Buscar..." aria-label="Buscar">
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                </div>
+            </form>
         </div>
-        <a href="{% url 'vehiculos:detalle_vehiculo' vehiculo.id %}" class="btn btn-info">Ver detalle</a>
-        <a href="{% url 'vehiculos:editar_vehiculo' vehiculo.id %}" class="btn btn-info">Actualizar vehículo</a>
-        <a href="{% url 'vehiculos:eliminar_vehiculo' vehiculo.id %}" class="btn btn-info">Eliminar publicación</a>
-    </li>
-    {% endfor %}
-</ul>
-         
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center text-light mb-4">Vehículos disponibles</h1>
+            <ul class="list-group">
+                {% for vehiculo in vehiculos %}
+                <li class="list-group-item bg-dark text-light mb-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <p class="h5">{{ vehiculo.marcas }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="h5">{{ vehiculo.modelos }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="h5">{{ vehiculo.tipo }}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-3">
+                        <a href="{% url 'vehiculos:detalle_vehiculo' vehiculo.id %}" class="btn btn-info me-2">Ver detalle</a>
+                        <a href="{% url 'vehiculos:editar_vehiculo' vehiculo.id %}" class="btn btn-warning me-2">Actualizar</a>
+                        <a href="{% url 'vehiculos:eliminar_vehiculo' vehiculo.id %}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock content %}
