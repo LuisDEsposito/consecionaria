@@ -14,6 +14,7 @@ class CustomLoginView(LoginView):
     template_name = "core/login.html"
 
 
+# REGISTER
 def register(request : HttpRequest) -> HttpResponse:
     if request.method == "POST":
         form =  CustomUserCreationForm(request.POST)
@@ -24,3 +25,8 @@ def register(request : HttpRequest) -> HttpResponse:
     else:
         form =  CustomUserCreationForm()
     return render(request, "core/register.html", {"form" : form})
+
+
+# ACERCA DE MÍ
+def about_me(request):
+    return render(request, "core/about_me.html")

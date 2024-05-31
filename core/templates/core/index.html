@@ -5,38 +5,39 @@
 {% endblock title %}
 
 {% block content %}
-    
     <!-- Page Content-->
-    <div class="container px-4 px-lg-5">
+    <div class="container px-4 px-lg-5 mt-5">
         {% if user.is_authenticated %}
-            <p class="text-info">¡Bienvenido!</p>            
+            <p class="text-success">¡Bienvenido!</p>            
         {% endif %}
         <!-- MENSAJE CUANDO SE CREA UN VENDEDOR -->
         {% if mensaje %}
-            <p class="text-info">{{ mensaje }} ¡Bienvenido! </p>             
+            <div class="alert alert-info" role="alert">
+                {{ mensaje }} ¡Bienvenido!
+            </div>             
         {% endif %}          
         
         <!-- Heading Row-->
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0"
-                    src="{% static 'core/img/auto.webp' %}" alt="..." /></div>
+            <div class="col-lg-7">
+                <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/auto.webp' %}" alt="Auto en venta" />
+            </div>
             <div class="col-lg-5">
-                <h1 class="font-weight-light">Estamos trabajando para poder brindarle una mejor atención</h1>
-                <p>DISCULPE LAS MOLESTIAS.</p>
+                <h1 class="font-weight-light text-light">Estamos trabajando para poder brindarle una mejor atención</h1>
+                <p class="text-light">DISCULPE LAS MOLESTIAS.</p>
                 {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'vehiculos:publicar_vehiculo' %}">Quiero publicar mi auto</a>
+                    <a class="btn btn-success" href="{% url 'vehiculos:publicar_vehiculo' %}">Quiero publicar mi auto</a>
                 {% else %}
-                <a class="btn btn-primary" href="{% url 'core:login' %}">Quiero publicar mi auto</a>
+                    <a class="btn btn-success" href="{% url 'core:login' %}">Quiero publicar mi auto</a>
                 {% endif %}
             </div>
         </div>
         
         <!-- Call to Action-->
-        <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card text-white bg-dark my-5 py-4 text-center">
             <div class="card-body">
-                <p class="text-white m-0"></p>
+                <p class="text-white m-0">Encuentra los mejores vehículos en Ventacar</p>
             </div>
         </div>
     </div>
-
 {% endblock content %}
