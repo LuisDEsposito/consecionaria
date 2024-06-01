@@ -48,7 +48,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'vehiculos:index' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'core:about_me' %}">Sobre mí</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'core:about_me' %}">Sobre nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
                         <li class="nav-item">
                             <span class="badge bg-success nav-link">{{ user.username }}</span>
@@ -60,7 +60,7 @@
                             </form>
                         </li>
                     {% else %}
-                        <li class="nav-item"><a class="nav-link" href="#">Quienes somos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'core:about_me' %}">Sobre nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Iniciar sesión</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'core:register' %}">Crear una cuenta</a></li>
