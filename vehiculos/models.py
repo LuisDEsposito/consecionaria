@@ -57,14 +57,16 @@ class Descripcion(models.Model):
 
 
 class Ver_vehiculos(models.Model):
-    tipo = models.CharField(max_length=30)
-    modelos = models.CharField(max_length=30)
-    marcas = models.CharField(max_length=30)
+    tipo = models.CharField(max_length=50)
+    modelos = models.CharField(max_length=50)
+    marcas = models.CharField(max_length=50)
     valor_dolares = models.DecimalField(max_digits=10, decimal_places=2, null = True)
-    descripcion = models.CharField(max_length=400, null=True)
+    descripcion = models.TextField(max_length=400, null=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True, null=True, editable=False)
     fecha_actualizacion = models.DateTimeField(auto_now=True, null=True, editable=False)
-    # fecha_actualizacion = models.DateField(null=True, blank=True, editable=False, default=timezone.now)
+    contacto_nombre = models.CharField(max_length=50, null=True, blank=True)
+    contacto_email = models.EmailField(max_length=254, null=True, blank=True)
+    contacto_telefono = models.CharField(max_length=20, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.marcas}, {self.modelos}"
