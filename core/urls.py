@@ -1,6 +1,8 @@
 from django.urls import path
 from django.contrib.auth.views import LogoutView
 from core.views import index, CustomLoginView, register, about_me
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 
 app_name = "core"
@@ -12,3 +14,5 @@ urlpatterns = [
     path("register/", register, name="register"),
     path("about/me/", about_me, name="about_me"),
     ]
+
+urlpatterns += staticfiles_urlpatterns()
