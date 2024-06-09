@@ -32,29 +32,7 @@ class Modelos(models.Model):
     class Meta:
         verbose_name = "Modelo"
         verbose_name_plural = "Modelos"
-
-
-class Precio(models.Model):
-    valor_dolares = models.DecimalField(max_digits=10, decimal_places=2, null= True)
-
-    def __str__(self):
-        return f"${self.valor_dolares}"
-
-    class Meta:
-        verbose_name = "Precio"
-        verbose_name_plural = "Precios"
-
-
-class Descripcion(models.Model):
-    descripcion = models.CharField(max_length=400, null=True)
-
-    def __str__(self):
-        return self.descripcion
-
-    class Meta:
-        verbose_name = "Estado del Vehículo"
-        verbose_name_plural = "Estados de los Vehículos"
-
+        
 
 class Ver_vehiculos(models.Model):
     tipo = models.CharField(max_length=50)

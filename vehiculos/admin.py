@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Ver_vehiculos, Marcas, Modelos, Tipo, Descripcion, Precio
+from .models import Ver_vehiculos, Marcas, Modelos, Tipo
 
 class VehiculosAdmin(admin.ModelAdmin):
     
@@ -17,5 +17,3 @@ admin.site.register(Ver_vehiculos, VehiculosAdmin)
 admin.site.register(Marcas)
 admin.site.register(Modelos)
 admin.site.register(Tipo)
-admin.site.register(Precio)
-admin.site.register(Descripcion)
